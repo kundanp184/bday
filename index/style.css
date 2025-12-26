@@ -1,0 +1,278 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #f77277, #ff87d5);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 { font-size: 3em; margin: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+
+p { font-size: 1.5em; }
+
+.gallery h2 { font-size: 2.5em; margin: 40px; }
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photos img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.photos img:hover { transform: scale(1.1); }
+
+#surpriseBtn {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 2em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#surpriseBtn:hover { background: #ff69b4; transform: scale(1.1); }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(to bottom, #fd1a5eff, #ff3b7c);
+    padding: 80px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    animation: fall 3s infinite;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.shayari {
+    font-size: 1.8em;
+    line-height: 1.6;
+    margin: 30px 0;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* Falling Hearts */
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+.modal-content::before {
+    content: '❤️ ❤️ ❤️';
+    position: absolute;
+    animation: hearts 5s linear infinite;
+}
+
+@keyframes hearts {
+    0% { opacity: 0; transform: translateY(-100px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(100vh); }
+}
+/* Explosion images */
+.explosion-img {
+    position: absolute;
+    width: 200px;
+    pointer-events: none;
+    animation: explode 2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes explode {
+    0% { transform: scale(0) translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.5) translateY(-200px); opacity: 0; }
+}
+
+/* Better falling hearts and confetti */
+.falling {
+    position: fixed;
+    pointer-events: none;
+    animation: fall-linear linear infinite;
+    z-index: 10;
+}
+
+@keyframes fall-linear {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+.confetti-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.confetti-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes 
+topBubbles {  0% {
+ background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+}
+ 50% {
+ background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+}
+ 100% {
+ background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+ background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+}
+}
+@keyframes 
+bottomBubbles {  0% {
+ background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+}
+ 50% {
+ background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+}
+ 100% {
+ background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+ background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+}
+}
+
+/* Modal box छोटा और centered */
+.modal-content {
+    background: linear-gradient(to bottom, #f97579, #f85d9e);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;  /* लैपटॉप पर परफेक्ट साइज */
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fall 3s infinite;
+    box-shadow: 0 0 30px rgba(255,105,180,0.8);
+}
+
+/* Special Gallery Photos - glowing heart border */
+.special-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.special-photos img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 6px solid #ff69b4;
+    box-shadow: 
+        0 0 20px #ff69b4,
+        0 0 40px #ff1493,
+        inset 0 0 20px rgba(255,255,255,0.5);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.special-photos img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 
+        0 0 40px #ff1493,
+        0 0 60px #ff69b4;
+}
+
+/* Switch Buttons */
+.switchBtn {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.switchBtn:hover {
+    background: #ff69b4;
+    transform: scale(1.1);
+}
+/* Final View Romantic Background */
+#finalView {
+    background: url('https://png.pngtree.com/background/20250605/original/pngtree-soft-pink-gradient-background-with-scattered-hearts-for-romantic-valentine-s-picture-image_16620898.jpg') center/cover no-repeat;
+    padding: 40px;
+    border-radius: 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.final-message {
+    font-family: 'Dancing Script', cursive; /* Google Fonts से - नीचे head में link ऐड करो */
+    font-size: 2.5em;
+    color: #ff1493;
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff69b4;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.3);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 90%;
+}
+
+/* Google Font for beautiful handwriting style */
+
+
+
+#mainView .shayari {
+    font-family: 'Pacifico', cursive; /* Ya phir 'Great Vibes', 'Satisfy' etc try kar sakte ho */
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: #333;
+    text-align: center;
+    background: rgba(255, 182, 193, 0.2); /* Light pink background */
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff69b4;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
